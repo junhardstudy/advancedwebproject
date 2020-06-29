@@ -7,7 +7,19 @@
 <title>여행가조</title>
 </head>
 <body>
-	<p>여행사진 섬네일 들어갈 부분
+	<div class = "container">
+		<div class="row" id="row1">
+			<div class="col" id="col3">
+			첫번째 섬네일
+			</div>
+			<div class="col" id="col2">
+			두번째 섬네일
+			</div>
+			<div class="col" id="col3">
+			세번째 섬네일
+			</div>
+		</div>
+	</div>
 
 
 </body>
