@@ -8,6 +8,7 @@
 <title>여행가조</title>
 </head>
 <body>
+	<jsp:include page="menu_bar.jsp" />	
 	<%@ include file="description.jsp"%>
 	<%@ include file="menu_bar.jsp"%>
 	<%@ include file="contents_list.jsp"%>
