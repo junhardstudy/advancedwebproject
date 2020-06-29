@@ -27,6 +27,7 @@
 			script.println("alert('로그인 성공!')");
 			script.println("location.href = 'index.jsp'");
 			script.println("</script>");
+			session.setAttribute("userid", user.getuserid());
 			
 		}
 		else if(result == 0){
