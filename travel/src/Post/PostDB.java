@@ -36,7 +36,7 @@ public class PostDB {
 		
 	}
 	public ArrayList<PostData> getList(int pageNumber){
-		String SQL = "SELECT * FROM postlist Where postid <? postavailable = 1 ORDER BY postid DESC LIMIT 10";
+		String SQL = "SELECT * FROM postlist Where postid <? AND postavailable = 1 ORDER BY postid DESC LIMIT 10";
 		ArrayList<PostData> list = new ArrayList<PostData>();
 		
 		try {
@@ -60,8 +60,9 @@ public class PostDB {
 
 	}
 	
-	public boolean nextPage(int pageNumber) {
-		String SQL = "SELECT * FROM postlist WHERE postid <? postavailable = 1 ORDER BY postid DESC LIMIT 10";
+	
+	public boolean nextPage(int pageNumber) {//다음 페이지일경우, 다음 10개 db 쿼리 가져오는건데... PostData 객체로 옮기는게 어떨지..
+		String SQL = "SELECT * FROM postlist WHERE postid <? AND postavailable = 1 ORDER BY postid DESC LIMIT 10";
 		ArrayList<PostData> list = new ArrayList<PostData>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -77,7 +78,28 @@ public class PostDB {
 
 	}
 	
-	
+	public PostData getPostData(int postid) {
+		String SQL = "SELECT * FROM postlist WHERE postid=?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, postid);
+			resultSet = pstmt.executeQuery();
+			if(resultSet.next()) {
+				PostData PostData = new PostData();
+				PostData.setPostid(resultSet.getInt(1));
+				PostData.setPosttitle(resultSet.getString(2));
+				PostData.setPostdate(resultSet.getString(3));
+				PostData.setPostcontents(resultSet.getString(4));
+				PostData.setPostavailable(resultSet.getInt(5));
+				PostData.setPostuserid(resultSet.getString(6));
+				
+				return PostData;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	public String getDate() {
 		String SQL = "SELECT NOW()";
 		try {
@@ -126,6 +148,33 @@ public class PostDB {
 			e.printStackTrace();
 		}
 		return -1; //db 오류
+	}
+	
+	public int modifyPost(int postid, String posttitle, String postcontents) {
+		String SQL = "UPDATE postlist SET posttitle=?, posttextcontents=? WHERE postid=?";
+
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, posttitle);
+			pstmt.setString(2, postcontents);
+			pstmt.setInt(3, postid);
+			return pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
+	public int deletepost(int postid) {
+		String SQL = "DELETE FROM postlist WHERE postid = ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, postid);
+			return pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
 	}
 
 

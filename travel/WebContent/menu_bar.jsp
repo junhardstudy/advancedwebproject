@@ -1,88 +1,51 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<link rel = "stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<title> 여행가조</title>
 </head>
 <style>
-	body{
-	background-color : black;
-	color : white;
-	}
-	nav {
-  	width: 100%;
-  	display: flex;
-  	justify-content: center;
-  	position: relative;
-  	font-weight : bold;
-  	float : center;
-	}
-	div{
-	height: 100px;
-	font-weight : bold;
-	font-size:3;
-	line-height: 2em;
-	color : white;
-	}
-	ul, li {
-  	margin: 0;
-  	padding: 0;
-  	list-style: none;
-	color : white;
-	}
-	
-	#sub-menu {
-	background-color : black;
-	width: 80%;
-  	opacity: 0;
-  	visibility: hidden;
-  	transition: all 0.2s ease-in;
-	line-height: 2em;
-	font-size:3;
-	color : white;
-	font-weight : bold;
-	margin:0;
-	padding:0;
-	list-style:none;
-	left:0;
-	top:0;
-	}
-
-	
-	
-	#main-menu > li {
-	float: left;
-  	position: relative;
-	}
-	#main-menu > li:hover #sub-menu {
- 	opacity: 1;
-  	visibility: visible;
-
-	}
-	
-	
 </style>
 <body>
-<nav class="navbar navbar-expand  navbar-dark fixed-top">
-	<div class="main-menu">
-		<ul id= main-menu>
-			<li><a class="navbar-brand" href="./description.jsp"> <img src="https://www.flaticon.com/premium-icon/icons/svg/3010/3010476.svg"  width="75" height="75"> Home &nbsp; &nbsp; &nbsp;</a></li> 
-			<li><a class="navbar-brand" href=".index.jsp"> <img src="https://image.flaticon.com/icons/svg/925/925568.svg"  width="75" height="75">여행가조 소개 &nbsp; &nbsp; &nbsp;</a></li>
-			<li><a class = "navbar-brand" href="./contents_list.jsp"> <img src="https://image.flaticon.com/icons/svg/3069/3069220.svg"   width="75" height="75">여행지 보기 &nbsp; &nbsp; &nbsp;
-			 	<ul  id="sub-menu">
-        			<li><a class = "navbar-brand "href="#" ><img src="https://www.flaticon.com/premium-icon/icons/svg/1944/1944063.svg" 	width="35" height="30">예시1</a></li>
-        			<li><a class = "navbar-brand "href="#" > &nbsp; &nbsp;<img src="https://image.flaticon.com/icons/svg/2907/2907240.svg"   width="35" height="30"> 2</a></li>
-        			<li><a class = "navbar-brand "href="#" > &nbsp; &nbsp;<img src="https://image.flaticon.com/icons/svg/3056/3056148.svg"   width="35" height="30"> 3</a></li>
-        			<li><a class = "navbar-brand "href="#" > &nbsp; &nbsp;<img src="https://image.flaticon.com/icons/svg/3022/3022559.svg"   width="35" height="30"> 333</a></li>
-     			 </ul>
-  		  	</li>
-			<li><a class="navbar-brand" href="./writepost.jsp"> <img src="https://image.flaticon.com/icons/svg/752/752326.svg"  width="75" height="75">여행 기록 하기 &nbsp; &nbsp; &nbsp;</a></li>
-		
-		</ul>
-	</div>
-</nav>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#"> Home</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarText" aria-controls="navbarText"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link" href="#">Home
+						<span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">여행가조 소개 </a>
+				</li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#"
+					id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false">여행지 보기</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#">국내</a> <a class="dropdown-item"
+							href="#">해외</a> <a class="dropdown-item" href="#">테마</a>
+					</div></li>
+			</ul>
+			<span class="navbar-text"> 
+			<%
+ 				String userid = null;
+ 				if (session.getAttribute("userid") != null) {
+ 					userid = (String) session.getAttribute("userid");
+ 				}
+ 				if (userid == null) {
+ 			%> <a href="./login.jsp">로그인</a> <a href="./signup.jsp">회원 가입</a> <%
+ 				} else {
+ 			%> <%=userid %>님 반갑습니다. <a href="./signoutProcess.jsp">로그아웃</a>
+				<%
+					}
+				%> 
+			</span>
+		</div>
+	</nav>
 </body>
 </html>
