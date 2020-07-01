@@ -17,18 +17,27 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarText">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Home
+				<li class="nav-item active"><a class="nav-link" href="#">
+				 <img src="https://www.flaticon.com/premium-icon/icons/svg/3010/3010476.svg"  width="60" height="60">Home
 						<span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">여행가조 소개 </a>
+				<li class="nav-item"><a class="nav-link" href="#">
+				<img src="https://image.flaticon.com/icons/svg/925/925568.svg"  width="60" height="60">
+				여행가조 소개 </a>
 				</li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#"
 					id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-					aria-haspopup="true" aria-expanded="false">여행지 보기</a>
+					aria-haspopup="true" aria-expanded="false">
+					<img src="https://image.flaticon.com/icons/svg/3069/3069220.svg"   width="60" height="60">
+					여행지 보기</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="#">국내</a> <a class="dropdown-item"
-							href="#">해외</a> <a class="dropdown-item" href="#">테마</a>
+						<a class="dropdown-item" href="#">
+							<img src="https://www.flaticon.com/premium-icon/icons/svg/2276/2276829.svg"   width="50" height="50">국내</a>
+						<a class="dropdown-item" href="#">
+							<img src="https://image.flaticon.com/icons/svg/3112/3112963.svg"   width="50" height="50">해외</a>
+						 <a class="dropdown-item" href="#">
+							<img src="https://image.flaticon.com/icons/svg/827/827055.svg"   width="50" height="50">테마</a>
 					</div></li>
 			</ul>
 			<span class="navbar-text"> 
