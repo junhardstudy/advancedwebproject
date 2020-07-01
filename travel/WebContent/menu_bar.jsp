@@ -79,7 +79,7 @@
         			<li><a class = "navbar-brand "href="#" > &nbsp; &nbsp;<img src="https://image.flaticon.com/icons/svg/3022/3022559.svg"   width="35" height="30"> 333</a></li>
      			 </ul>
   		  	</li>
-			<li><a class="navbar-brand" href="./write.jsp"> <img src="https://image.flaticon.com/icons/svg/752/752326.svg"  width="75" height="75">여행 기록 하기 &nbsp; &nbsp; &nbsp;</a></li>
+			<li><a class="navbar-brand" href="./writepost.jsp"> <img src="https://image.flaticon.com/icons/svg/752/752326.svg"  width="75" height="75">여행 기록 하기 &nbsp; &nbsp; &nbsp;</a></li>
 		
 		</ul>
 	</div>
